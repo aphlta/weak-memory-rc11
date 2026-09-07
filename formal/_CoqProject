@@ -1,0 +1,4 @@
+-R . Formal
+MiniGraph.v
+Reduction.v
+IndProp.v

@@ -1,0 +1,19 @@
+{
+  "name": "coherence-rw",
+  "description": "CoRW：不放 x 初值，T1 的 load 只能读到 T0 的 x=1，随后同线程写 x=2，强制 1 mo 2。T2 与写者无 hb，旧 hb-极大写规则放行先 2 后 1；存在性 mo 成环丢掉。这不是 MP，读者没有任何 acquire。",
+  "initial_memory": {},
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"}
+    ],
+    [
+      {"op": "load", "loc": "x", "target": "a", "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "x", "value": 2, "atomic": true, "order": "relaxed"}
+    ],
+    [
+      {"op": "load", "loc": "x", "target": "b", "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "c", "atomic": true, "order": "relaxed"},
+      {"op": "assert_eq", "left": "c", "right": 2, "when": {"b": 2}}
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "corr-official",
+  "description": "教具配对官方 CO/CoRR.litmus（非 coherence_rr.json）。herd States 三角 (0,0)(0,1)(1,1) 皆 [x]=1，无 (1,0)。本器 weak=kept 中 r1==1∧r2==0。P0 sw1; P1 lw;lw。非汇编翻译。",
+  "initial_memory": { "x": 0 },
+  "observe": ["r1", "r2"],
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"}
+    ],
+    [
+      {"op": "load", "loc": "x", "target": "r1", "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "r2", "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

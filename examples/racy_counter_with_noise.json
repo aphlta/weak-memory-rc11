@@ -1,0 +1,19 @@
+{
+  "name": "racy-counter-with-noise",
+  "observe": ["b"],
+  "initial_memory": { "x": 0, "n1": 0, "n2": 0 },
+  "threads": [
+    [
+      {"op": "store", "loc": "n1", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "n1", "target": "u1", "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "a", "atomic": false},
+      {"op": "store", "loc": "x", "value": 1, "atomic": false}
+    ],
+    [
+      {"op": "store", "loc": "n2", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "n2", "target": "u2", "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "b", "atomic": false},
+      {"op": "assert_eq", "left": "b", "right": 0}
+    ]
+  ]
+}

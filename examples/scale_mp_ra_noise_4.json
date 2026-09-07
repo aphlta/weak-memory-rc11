@@ -1,0 +1,113 @@
+{
+  "name": "mp-ra-noise-4",
+  "observe": [
+    "f",
+    "r"
+  ],
+  "initial_memory": {
+    "x": 0,
+    "flag": 0,
+    "n0": 0,
+    "n1": 0,
+    "n2": 0,
+    "n3": 0
+  },
+  "threads": [
+    [
+      {
+        "op": "store",
+        "loc": "n0",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "n1",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "n2",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "n3",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "x",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "flag",
+        "value": 1,
+        "atomic": true,
+        "order": "release"
+      }
+    ],
+    [
+      {
+        "op": "load",
+        "loc": "n0",
+        "target": "t0",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n1",
+        "target": "t1",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n2",
+        "target": "t2",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n3",
+        "target": "t3",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "flag",
+        "target": "f",
+        "atomic": true,
+        "order": "acquire"
+      },
+      {
+        "op": "load",
+        "loc": "x",
+        "target": "r",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "assert_eq",
+        "left": "r",
+        "right": 1,
+        "when": {
+          "f": 1
+        }
+      }
+    ]
+  ]
+}

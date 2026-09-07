@@ -1,0 +1,12 @@
+{
+  "name": "coww-stores-only",
+  "description": "教具配对 CO/CoWW.litmus（方案 A）。官方无 load，观察 [x]=2；exists (not ([x]=2))，herd Never。本器 weak=kept 上 mo 见证末写 value!=2。仅 sw1;sw2，禁止末尾 load（那会变成 CoWW+CoWR）。非汇编翻译。",
+  "initial_memory": { "x": 0 },
+  "observe": [],
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "x", "value": 2, "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

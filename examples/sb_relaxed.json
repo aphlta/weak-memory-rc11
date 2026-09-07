@@ -1,0 +1,15 @@
+{
+  "name": "sb-relaxed",
+  "observe": ["a", "b"],
+  "initial_memory": { "x": 0, "y": 0 },
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "y", "target": "a", "atomic": true, "order": "relaxed"}
+    ],
+    [
+      {"op": "store", "loc": "y", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "b", "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

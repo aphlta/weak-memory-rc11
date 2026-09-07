@@ -1,0 +1,17 @@
+# 本项目只依赖 Python 标准库；这些是本地跑脚本时的常见垃圾。
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+.DS_Store
+
+# 实验快照（可本地用 --write-results 再生；不进首次推送）
+results/
+
+# Coq 编译产物（源码 .v 保留；formal/.gitignore 已覆盖，根级再保险）
+formal/*.vo
+formal/*.vos
+formal/*.vok
+formal/*.glob
+formal/.*.aux

@@ -1,0 +1,18 @@
+{
+  "name": "mp-ra-dup-writes",
+  "observe": ["f", "r"],
+  "initial_memory": { "x": 0, "flag": 0 },
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "flag", "value": 1, "atomic": true, "order": "release"}
+    ],
+    [
+      {"op": "load", "loc": "flag", "target": "f", "atomic": true, "order": "acquire"},
+      {"op": "load", "loc": "x", "target": "r", "atomic": true, "order": "relaxed"},
+      {"op": "assert_eq", "left": "r", "right": 1, "when": { "f": 1 }}
+    ]
+  ]
+}

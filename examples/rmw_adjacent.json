@@ -1,0 +1,16 @@
+{
+  "name": "rmw-adjacent",
+  "initial_memory": { "x": 0 },
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"}
+    ],
+    [
+      {"op": "rmw", "loc": "x", "value": 2, "target": "old", "atomic": true, "order": "acq_rel"},
+      {"op": "assert_eq", "left": "old", "right": 1, "when": {"old": 1}}
+    ],
+    [
+      {"op": "store", "loc": "x", "value": 3, "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

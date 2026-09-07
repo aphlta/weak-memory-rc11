@@ -1,0 +1,16 @@
+{
+  "name": "cex-entangled-after-acquire",
+  "observe": ["a"],
+  "initial_memory": { "n": 0, "y": 0 },
+  "threads": [
+    [
+      {"op": "store", "loc": "n", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "n", "value": 2, "atomic": true, "order": "relaxed"},
+      {"op": "store", "loc": "y", "value": 1, "atomic": true, "order": "release"}
+    ],
+    [
+      {"op": "load", "loc": "y", "target": "a", "atomic": true, "order": "acquire"},
+      {"op": "load", "loc": "n", "target": "t", "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

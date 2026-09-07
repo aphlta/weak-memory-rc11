@@ -1,0 +1,35 @@
+{
+  "name": "racy-counter",
+  "initial_memory": {
+    "x": 0
+  },
+  "threads": [
+    [
+      {
+        "op": "load",
+        "loc": "x",
+        "target": "a",
+        "atomic": false
+      },
+      {
+        "op": "store",
+        "loc": "x",
+        "value": 1,
+        "atomic": false
+      }
+    ],
+    [
+      {
+        "op": "load",
+        "loc": "x",
+        "target": "b",
+        "atomic": false
+      },
+      {
+        "op": "assert_eq",
+        "left": "b",
+        "right": 0
+      }
+    ]
+  ]
+}

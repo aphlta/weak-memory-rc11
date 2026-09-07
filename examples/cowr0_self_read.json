@@ -1,0 +1,12 @@
+{
+  "name": "cowr0-self-read",
+  "description": "教具配对 CO/CoWR0.litmus。官方 exists (not (0:x7=1 /\\ [x]=1))，herd States: 仅 0:x7=1;[x]=1。本器 weak=kept 中存在 r!=1。单线程 sw1;lw。非汇编翻译。",
+  "initial_memory": { "x": 0 },
+  "observe": ["r"],
+  "threads": [
+    [
+      {"op": "store", "loc": "x", "value": 1, "atomic": true, "order": "relaxed"},
+      {"op": "load", "loc": "x", "target": "r", "atomic": true, "order": "relaxed"}
+    ]
+  ]
+}

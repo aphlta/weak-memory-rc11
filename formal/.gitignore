@@ -1,0 +1,6 @@
+*.vo
+*.glob
+*.vos
+*.vok
+.*.aux
+.coq-native/

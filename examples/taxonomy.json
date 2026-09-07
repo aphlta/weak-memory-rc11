@@ -1,0 +1,77 @@
+{
+  "MP_RA": {
+    "title": "消息传递（RA）",
+    "programs": [
+      "message_passing.json",
+      "message_passing_with_irrelevant_load.json",
+      "rs_message_passing.json",
+      "rs_mp_with_noise.json",
+      "mp_ra_dup_writes.json"
+    ]
+  },
+  "MP_fence_SC": {
+    "title": "消息传递（fence/relaxed）",
+    "programs": [
+      "mp_relaxed.json",
+      "mp_sc_fence.json",
+      "mp_sc_fence_with_irrelevant_load.json",
+      "mp_relaxed_with_noise.json",
+      "mp_relaxed_noise_assert.json"
+    ]
+  },
+  "SB_LB": {
+    "title": "Store Buffering / Load Buffering",
+    "programs": [
+      "sb_relaxed.json",
+      "sb_seq_cst.json",
+      "sb_sc_with_irrelevant_load.json",
+      "sb_with_noise.json",
+      "lb_relaxed.json"
+    ]
+  },
+  "coherence_RMW": {
+    "title": "Coherence / RMW",
+    "programs": [
+      "coherence_rr.json",
+      "coherence_rw.json",
+      "rmw_adjacent.json"
+    ]
+  },
+  "scale_noise": {
+    "title": "噪声规模曲线",
+    "programs": [
+      "mp_two_noise.json",
+      "mp_triple_noise.json",
+      "scale_mp_ra_noise_4.json",
+      "scale_mp_ra_noise_5.json",
+      "scale_mp_ra_noise_6.json",
+      "scale_mp_ra_noise_7.json",
+      "scale_mp_fence_noise_4.json",
+      "scale_mp_fence_noise_5.json",
+      "scale_mp_fence_noise_6.json",
+      "scale_sb_noise_2.json",
+      "scale_sb_noise_3.json",
+      "scale_sb_noise_4.json",
+      "scale_lb_noise_2.json",
+      "scale_lb_noise_3.json",
+      "scale_lb_noise_4.json"
+    ]
+  },
+  "bug_finding": {
+    "title": "错误发现（race / assert）",
+    "programs": [
+      "racy_counter.json",
+      "racy_counter_with_noise.json",
+      "mp_relaxed.json",
+      "mp_relaxed_with_noise.json",
+      "mp_relaxed_noise_assert.json"
+    ]
+  },
+  "ind_boundary": {
+    "title": "IND 边界反例",
+    "programs": [
+      "cex_entangled_after_acquire.json",
+      "cex_shared_loc.json"
+    ]
+  }
+}

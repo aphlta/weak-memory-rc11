@@ -1,0 +1,90 @@
+{
+  "name": "sb-noise-3",
+  "observe": [
+    "a",
+    "b"
+  ],
+  "initial_memory": {
+    "x": 0,
+    "y": 0,
+    "n0": 0,
+    "n1": 0,
+    "n2": 0
+  },
+  "threads": [
+    [
+      {
+        "op": "store",
+        "loc": "n0",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n0",
+        "target": "u0",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "n1",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n1",
+        "target": "u1",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "n2",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "n2",
+        "target": "u2",
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "store",
+        "loc": "x",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "y",
+        "target": "a",
+        "atomic": true,
+        "order": "relaxed"
+      }
+    ],
+    [
+      {
+        "op": "store",
+        "loc": "y",
+        "value": 1,
+        "atomic": true,
+        "order": "relaxed"
+      },
+      {
+        "op": "load",
+        "loc": "x",
+        "target": "b",
+        "atomic": true,
+        "order": "relaxed"
+      }
+    ]
+  ]
+}
